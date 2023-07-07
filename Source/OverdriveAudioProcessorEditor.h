@@ -1,16 +1,8 @@
-/*
-  ==============================================================================
-
-    OverdriveAudioProcessorEditor.h
-    Created: 7 Jun 2023 2:58:14pm
-    Author:  emmet
-
-  ==============================================================================
-*/
-
 #pragma once
 #include "OverdriveAudioProcessor.h"
 #include "CustomLookAndFeel.h"
+#include "CentredLabel.h"
+#include "DbSlider.h"
 
 class OverdriveAudioProcessorEditor : public juce::AudioProcessorEditor
 {
@@ -29,11 +21,11 @@ private:
     CustomLookAndFeel customLookAndFeel;
     juce::Image image;
 
-    juce::Slider inputSlider;
-    juce::Slider outputSlider;
+    DbSlider inputSlider;
+    DbSlider outputSlider;
     
-    juce::Label inputLabel;
-    juce::Label outputLabel;
+    CentredLabel inputLabel;
+    CentredLabel outputLabel;
 
     using Attachment = juce::AudioProcessorValueTreeState::SliderAttachment;
 

@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    OverdriveAudioProcessor.cpp
-    Created: 7 Jun 2023 2:47:30pm
-    Author:  emmet
-
-  ==============================================================================
-*/
-
 #include "OverdriveAudioProcessor.h"
 #include "OverdriveAudioProcessorEditor.h"
 
@@ -25,32 +15,16 @@ void OverdriveAudioProcessor::prepareToPlay(double sr, int samplesPerBlock)
     juce::dsp::ProcessSpec spec { sampleRate, 
                                   static_cast<juce::uint32>(samplesPerBlock), 
                                   static_cast<juce::uint32> (getTotalNumOutputChannels()) };
-    updateParameters();
-
-    auto& gainUp = overdrive.get<0>();
-    gainUp.setGainDecibels (24);
-
-    auto& bias = overdrive.get<1>();
-    bias.setBias (0.4f);
-
-    auto& wavShaper = overdrive.get<2>();
-    wavShaper.functionToUse = [](float sample) { return std::tanh(sample); };
-
-    auto& dcFilter = overdrive.get<3>();
-    dcFilter.state = juce::dsp::IIR::Coefficients<float>::makeHighPass (sampleRate, 5.0);
-
-    auto& gainDown = overdrive.get<4>();
-    gainDown.setGainDecibels (-18.0f);
-
     overdrive.prepare(spec);
+    updateParameters();
 }
 
 
 void OverdriveAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juce::MidiBuffer& /*midi*/)
 {
+    updateParameters();
     juce::dsp::AudioBlock<float> block(buffer);
     juce::dsp::ProcessContextReplacing<float> context(block);
-    updateParameters();
     overdrive.process (context);
 }
 
@@ -78,6 +52,21 @@ void OverdriveAudioProcessor::setStateInformation (const void* data, int sizeInB
 
 void OverdriveAudioProcessor::updateParameters()
 {
+    auto& gainUp = overdrive.get<0>();
+    gainUp.setGainDecibels(24);
+
+    auto& bias = overdrive.get<1>();
+    bias.setBias(0.4f);
+
+    auto& wavShaper = overdrive.get<2>();
+    wavShaper.functionToUse = [](float sample) { return std::tanh(sample); };
+
+    auto& dcFilter = overdrive.get<3>();
+    dcFilter.state = juce::dsp::IIR::Coefficients<float>::makeHighPass(sampleRate, 5.0);
+
+    auto& gainDown = overdrive.get<4>();
+    gainDown.setGainDecibels(-18.0f);
+
     if (sampleRate != 0.0)
     {
         overdrive.get<0>().setGainDecibels (static_cast<float> (*apvts.getRawParameterValue("input")));

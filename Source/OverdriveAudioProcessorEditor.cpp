@@ -19,7 +19,7 @@ void OverdriveAudioProcessorEditor::addAllPanelComponents()
 {
     inputLabel.setText("Input", juce::dontSendNotification);
     addAndMakeVisible(inputLabel);
-    inputSlider.setSliderStyle(juce::Slider::LinearHorizontal);
+    inputSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
     inputSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 70, 20);
     inputSlider.setLookAndFeel(&customLookAndFeel);
     addAndMakeVisible(inputSlider);
@@ -27,7 +27,7 @@ void OverdriveAudioProcessorEditor::addAllPanelComponents()
 
     outputLabel.setText("Output", juce::dontSendNotification);
     addAndMakeVisible(outputLabel);
-    outputSlider.setSliderStyle(juce::Slider::LinearHorizontal);
+    outputSlider.setSliderStyle(juce::Slider::RotaryHorizontalVerticalDrag);
     outputSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, false, 70, 20);
     outputSlider.setLookAndFeel(&customLookAndFeel);
     addAndMakeVisible (outputSlider);
@@ -38,13 +38,10 @@ void OverdriveAudioProcessorEditor::addAllPanelComponents()
 
 void OverdriveAudioProcessorEditor::resized()
 {
-    auto bounds = getLocalBounds();
-    
-    inputLabel.setBounds (bounds.removeFromTop (30));
-    inputSlider.setBounds (bounds.removeFromTop (50));
-
-    outputLabel.setBounds (bounds.removeFromTop (30));
-    outputSlider.setBounds (bounds.removeFromTop (50));
+    inputLabel.setBounds (37, 20, 80, 40);
+    inputSlider.setBounds (10, 60, 100, 100);
+    outputLabel.setBounds (150, 20, 80, 40);
+    outputSlider.setBounds (123, 60, 100, 100);
 }
 
 

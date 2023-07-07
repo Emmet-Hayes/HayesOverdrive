@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    OverdriveAudioProcessor.h
-    Created: 7 Jun 2023 2:44:57pm
-    Author:  emmet
-
-  ==============================================================================
-*/
-
 #pragma once
 #include <JuceHeader.h>
 
@@ -17,7 +7,7 @@ public:
     OverdriveAudioProcessor();
 
     void releaseResources() override {}
-    const juce::String getName() const override { return "Overdrive"; }
+    const juce::String getName() const override { return JucePlugin_Name; }
     bool acceptsMidi() const override { return false; }
     bool producesMidi() const override { return false; }
     double getTailLengthSeconds() const override { return 0.0; }
