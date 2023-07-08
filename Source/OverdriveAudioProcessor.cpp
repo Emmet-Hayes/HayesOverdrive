@@ -2,9 +2,7 @@
 #include "OverdriveAudioProcessorEditor.h"
 
 OverdriveAudioProcessor::OverdriveAudioProcessor()
-: apvts (*this, nullptr, "PARAMETERS",
-         {std::make_unique<juce::AudioParameterFloat>("input", "Input Gain", -100.0f, 60.0f, 0.0f),
-          std::make_unique<juce::AudioParameterFloat>("output", "Output Gain", -100.0f, 60.0f, 0.0f)})
+:   apvts { *this, nullptr, "PARAMETERS", createParameterLayout() }
 {
 }
 
@@ -25,7 +23,7 @@ void OverdriveAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juc
     updateParameters();
     juce::dsp::AudioBlock<float> block(buffer);
     juce::dsp::ProcessContextReplacing<float> context(block);
-    overdrive.process (context);
+    overdrive.process(context);
 }
 
 
@@ -50,6 +48,14 @@ void OverdriveAudioProcessor::setStateInformation (const void* data, int sizeInB
 }
 
 
+juce::AudioProcessorValueTreeState::ParameterLayout OverdriveAudioProcessor::createParameterLayout()
+{
+    juce::AudioProcessorValueTreeState::ParameterLayout layout;
+    layout.add(std::make_unique<juce::AudioParameterFloat>("input", "Input Gain", -100.0f, 60.0f, 0.0f));
+    layout.add(std::make_unique<juce::AudioParameterFloat>("output", "Output Gain", -100.0f, 60.0f, 0.0f));
+    return layout;
+}
+
 void OverdriveAudioProcessor::updateParameters()
 {
     auto& gainUp = overdrive.get<0>();
@@ -69,8 +75,8 @@ void OverdriveAudioProcessor::updateParameters()
 
     if (sampleRate != 0.0)
     {
-        overdrive.get<0>().setGainDecibels (static_cast<float> (*apvts.getRawParameterValue("input")));
-        overdrive.get<4>().setGainDecibels (static_cast<float> (*apvts.getRawParameterValue("output")));
+        overdrive.get<0>().setGainDecibels(static_cast<float>(*apvts.getRawParameterValue("input")));
+        overdrive.get<4>().setGainDecibels(static_cast<float>(*apvts.getRawParameterValue("output")));
     }
 }
 

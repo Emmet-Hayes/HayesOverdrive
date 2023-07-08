@@ -8,7 +8,6 @@ class OverdriveAudioProcessorEditor : public juce::AudioProcessorEditor
 {
 public:
     OverdriveAudioProcessorEditor(OverdriveAudioProcessor& p);
-    ~OverdriveAudioProcessorEditor() override;
 
     void paint(juce::Graphics&) override;
     void resized() override;

@@ -4,15 +4,8 @@ OverdriveAudioProcessorEditor::OverdriveAudioProcessorEditor(OverdriveAudioProce
 :   AudioProcessorEditor (&p)
 ,   processor (p)
 {
-    setSize (250, 200);
+    setSize(250, 200);
     addAllPanelComponents();
-}
-
-
-OverdriveAudioProcessorEditor::~OverdriveAudioProcessorEditor()
-{
-    inputAttachment = nullptr;
-    outputAttachment = nullptr;
 }
 
 void OverdriveAudioProcessorEditor::addAllPanelComponents()
@@ -38,10 +31,10 @@ void OverdriveAudioProcessorEditor::addAllPanelComponents()
 
 void OverdriveAudioProcessorEditor::resized()
 {
-    inputLabel.setBounds (37, 20, 80, 40);
-    inputSlider.setBounds (10, 60, 100, 100);
-    outputLabel.setBounds (150, 20, 80, 40);
-    outputSlider.setBounds (123, 60, 100, 100);
+    inputLabel.setBounds(37, 20, 80, 40);
+    inputSlider.setBounds(10, 60, 100, 100);
+    outputLabel.setBounds(150, 20, 80, 40);
+    outputSlider.setBounds(123, 60, 100, 100);
 }
 
 

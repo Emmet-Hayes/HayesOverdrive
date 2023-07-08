@@ -19,11 +19,6 @@
       <FILE id="hLPFXA" name="OverdriveAudioProcessorEditor.h" compile="0"
             resource="0" file="Source/OverdriveAudioProcessorEditor.h"/>
     </GROUP>
-    <GROUP id="MiJKEq" name="Assets">
-      <FILE id="BoPJgt" name="DemoUtilities.h" compile="0" resource="0" file="Source/DemoUtilities.h"/>
-      <FILE id="OWu5NB" name="DSPDemos_Common.h" compile="0" resource="0"
-            file="Source/DSPDemos_Common.h"/>
-    </GROUP>
     <FILE id="WvaFCz" name="bgfile.jpg" compile="0" resource="1" file="Images/bgfile.jpg"/>
   </MAINGROUP>
   <MODULES>

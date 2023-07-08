@@ -17,15 +17,16 @@ public:
     const juce::String getProgramName(int /*index*/) override { return {}; }
     void changeProgramName(int /*index*/, const juce::String& /*newName*/) override {}
     bool hasEditor() const override { return true; }
+
     void prepareToPlay(double sampleRate, int samplesPerBlock) override;
     void processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
-    AudioProcessorEditor* createEditor() override;
+    juce::AudioProcessorEditor* createEditor() override;
     void getStateInformation(juce::MemoryBlock& destData) override;
     void setStateInformation(const void* data, int sizeInBytes) override;
 
+    juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
     void updateParameters();
     
-    //==============================================================================
     using GainProcessor   = juce::dsp::Gain<float>;
     using BiasProcessor   = juce::dsp::Bias<float>;
     using DriveProcessor  = juce::dsp::WaveShaper<float>;
