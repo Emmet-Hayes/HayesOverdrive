@@ -15,10 +15,12 @@ void OverdriveAudioProcessorEditor::addAllPanelComponents()
 
     const char* paramNames[NUM_SLIDERS] = { "input", "bias", "output" };
     const char* paramLabels[NUM_SLIDERS] = { "Input", "Bias", "Output" };
+    Font font1("Lucida Console", 10.0f, Font::bold);
 
     for (int i = 0; i < NUM_SLIDERS; ++i)
     {
         sliderLabels[i].setText(paramLabels[i], juce::dontSendNotification);
+        sliderLabels[i].setFont(font1);
         addAndMakeVisible(sliderLabels[i]);
         if (i == 0 || i == 2)
             sliders[i] = std::make_unique<DbSlider>();
@@ -36,6 +38,7 @@ void OverdriveAudioProcessorEditor::addAllPanelComponents()
     addAndMakeVisible(waveShapeLabel);
     waveShapeBox.addItemList(juce::StringArray{ "Tanh", "Sin", "Soft", "Hard", "Arctan", "Sigmoid", "Hard Tanh", "Absolute Value" }, 1);
     waveShapeBox.setJustificationType(juce::Justification::centred);
+    waveShapeBox.setLookAndFeel(&customLookAndFeel);
     addAndMakeVisible(waveShapeBox);
     
     waveShapeBoxAttachment = std::make_unique<ComboBoxAttachment>(processor.apvts, "waveshape", waveShapeBox);

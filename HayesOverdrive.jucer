@@ -7,6 +7,8 @@
   <MAINGROUP id="ovtJQf" name="HayesOverdrive">
     <GROUP id="{EE7455E5-9AF7-5E6F-17CA-7306226A685F}" name="Source">
       <FILE id="IkmgxQ" name="CentredLabel.h" compile="0" resource="0" file="Source/CentredLabel.h"/>
+      <FILE id="HKCpVm" name="CustomLookAndFeel.cpp" compile="1" resource="0"
+            file="Source/CustomLookAndFeel.cpp"/>
       <FILE id="TLcuw2" name="CustomLookAndFeel.h" compile="0" resource="0"
             file="Source/CustomLookAndFeel.h"/>
       <FILE id="YPssoI" name="DbSlider.h" compile="0" resource="0" file="Source/DbSlider.h"/>
