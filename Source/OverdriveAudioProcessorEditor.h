@@ -4,6 +4,8 @@
 #include "CentredLabel.h"
 #include "DbSlider.h"
 
+constexpr int NUM_SLIDERS = 3;
+
 class OverdriveAudioProcessorEditor : public juce::AudioProcessorEditor
 {
 public:
@@ -20,16 +22,14 @@ private:
     CustomLookAndFeel customLookAndFeel;
     juce::Image image;
 
-    DbSlider inputSlider;
-    DbSlider outputSlider;
-    
-    CentredLabel inputLabel;
-    CentredLabel outputLabel;
+    std::unique_ptr<juce::Slider> sliders[NUM_SLIDERS];
+    CentredLabel sliderLabels[NUM_SLIDERS];
 
-    using Attachment = juce::AudioProcessorValueTreeState::SliderAttachment;
+    juce::ComboBox waveShapeBox;
+    CentredLabel waveShapeLabel;
 
-    std::unique_ptr<Attachment> inputAttachment;
-    std::unique_ptr<Attachment> outputAttachment;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment> sliderAttachments[NUM_SLIDERS];
+    std::unique_ptr<juce::AudioProcessorValueTreeState::ComboBoxAttachment> waveShapeBoxAttachment;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OverdriveAudioProcessorEditor)
 };
