@@ -1,5 +1,6 @@
 #pragma once
 #include <JuceHeader.h>
+#include "ScopeComponent.h"
 
 class OverdriveAudioProcessor : public juce::AudioProcessor
 {
@@ -37,6 +38,9 @@ public:
 
     juce::AudioProcessorValueTreeState apvts;
     double sampleRate = 0.0;
+
+    AudioBufferQueue<float> audioBufferQueue;
+    ScopeDataCollector<float> scopeDataCollector{ audioBufferQueue };
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(OverdriveAudioProcessor)
 };

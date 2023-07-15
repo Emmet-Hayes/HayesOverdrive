@@ -3,22 +3,26 @@
 #include "CustomLookAndFeel.h"
 #include "CentredLabel.h"
 #include "DbSlider.h"
+#include "ScopeComponent.h"
 
 constexpr int NUM_SLIDERS = 3;
 
 class OverdriveAudioProcessorEditor : public juce::AudioProcessorEditor
+                                    , private juce::Timer
 {
 public:
     OverdriveAudioProcessorEditor(OverdriveAudioProcessor& p);
 
     void paint(juce::Graphics&) override;
     void resized() override;
+    void timerCallback() override;
 
 private:
     void addAllPanelComponents();
 
     OverdriveAudioProcessor& processor;
     
+    std::unique_ptr<ScopeComponent<float>> scopeComponent;
     CustomLookAndFeel customLookAndFeel;
     juce::Image image;
 

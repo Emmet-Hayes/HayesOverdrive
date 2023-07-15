@@ -24,6 +24,8 @@ void OverdriveAudioProcessor::processBlock(juce::AudioBuffer<float>& buffer, juc
     juce::dsp::AudioBlock<float> block(buffer);
     juce::dsp::ProcessContextReplacing<float> context(block);
     overdrive.process(context);
+
+    scopeDataCollector.process(context.getOutputBlock().getChannelPointer(0), context.getOutputBlock().getNumSamples());
 }
 
 

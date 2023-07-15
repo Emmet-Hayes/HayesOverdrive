@@ -20,6 +20,8 @@
             resource="0" file="Source/OverdriveAudioProcessorEditor.cpp"/>
       <FILE id="hLPFXA" name="OverdriveAudioProcessorEditor.h" compile="0"
             resource="0" file="Source/OverdriveAudioProcessorEditor.h"/>
+      <FILE id="I3lwrB" name="ScopeComponent.h" compile="0" resource="0"
+            file="Source/ScopeComponent.h"/>
     </GROUP>
     <FILE id="WvaFCz" name="bgfile.jpg" compile="0" resource="1" file="Images/bgfile.jpg"/>
   </MAINGROUP>
