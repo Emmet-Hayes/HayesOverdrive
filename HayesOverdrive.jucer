@@ -3,7 +3,7 @@
 <JUCERPROJECT name="HayesOverdrive" version="1.0.0" displaySplashScreen="1"
               projectType="audioplug" useAppConfig="0" addUsingNamespaceToJuceHeader="1"
               id="LYNWhD" jucerFormatVersion="1" pluginFormats="buildAU,buildLV2,buildStandalone,buildVST3"
-              companyName="EmmetSoft">
+              companyName="EmmetSoft" defines="JUCE_MODAL_LOOPS_PERMITTED=1">
   <MAINGROUP id="ovtJQf" name="HayesOverdrive">
     <GROUP id="{EE7455E5-9AF7-5E6F-17CA-7306226A685F}" name="Source">
       <FILE id="IkmgxQ" name="CentredLabel.h" compile="0" resource="0" file="Source/CentredLabel.h"/>
@@ -12,14 +12,20 @@
       <FILE id="TLcuw2" name="CustomLookAndFeel.h" compile="0" resource="0"
             file="Source/CustomLookAndFeel.h"/>
       <FILE id="YPssoI" name="DbSlider.h" compile="0" resource="0" file="Source/DbSlider.h"/>
-      <FILE id="ezNDxx" name="OverdriveAudioProcessor.cpp" compile="1" resource="0"
-            file="Source/OverdriveAudioProcessor.cpp"/>
-      <FILE id="ssvW9U" name="OverdriveAudioProcessor.h" compile="0" resource="0"
-            file="Source/OverdriveAudioProcessor.h"/>
-      <FILE id="p0D6qQ" name="OverdriveAudioProcessorEditor.cpp" compile="1"
-            resource="0" file="Source/OverdriveAudioProcessorEditor.cpp"/>
-      <FILE id="hLPFXA" name="OverdriveAudioProcessorEditor.h" compile="0"
-            resource="0" file="Source/OverdriveAudioProcessorEditor.h"/>
+      <FILE id="ezNDxx" name="HayesOverdriveAudioProcessor.cpp" compile="1"
+            resource="0" file="Source/HayesOverdriveAudioProcessor.cpp"/>
+      <FILE id="ssvW9U" name="HayesOverdriveAudioProcessor.h" compile="0"
+            resource="0" file="Source/HayesOverdriveAudioProcessor.h"/>
+      <FILE id="p0D6qQ" name="HayesOverdriveAudioProcessorEditor.cpp" compile="1"
+            resource="0" file="Source/HayesOverdriveAudioProcessorEditor.cpp"/>
+      <FILE id="hLPFXA" name="HayesOverdriveAudioProcessorEditor.h" compile="0"
+            resource="0" file="Source/HayesOverdriveAudioProcessorEditor.h"/>
+      <FILE id="Hp6DAn" name="PresetBar.cpp" compile="1" resource="0" file="Source/PresetBar.cpp"/>
+      <FILE id="fxV6Qx" name="PresetBar.h" compile="0" resource="0" file="Source/PresetBar.h"/>
+      <FILE id="nq0z9c" name="PresetComboBox.cpp" compile="1" resource="0"
+            file="Source/PresetComboBox.cpp"/>
+      <FILE id="baXWWs" name="PresetComboBox.h" compile="0" resource="0"
+            file="Source/PresetComboBox.h"/>
       <FILE id="I3lwrB" name="ScopeComponent.h" compile="0" resource="0"
             file="Source/ScopeComponent.h"/>
     </GROUP>
