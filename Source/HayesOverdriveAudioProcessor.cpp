@@ -2,7 +2,7 @@
 #include "HayesOverdriveAudioProcessorEditor.h"
 
 HayesOverdriveAudioProcessor::HayesOverdriveAudioProcessor()
-:   apvts { *this, nullptr, "PARAMETERS", createParameterLayout() }
+:   BaseAudioProcessor { createParameterLayout() }
 {
 }
 
@@ -33,22 +33,6 @@ AudioProcessorEditor* HayesOverdriveAudioProcessor::createEditor()
 {
     return new HayesOverdriveAudioProcessorEditor(*this);
 }
-
-
-void HayesOverdriveAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
-{
-    if (auto xml = apvts.state.createXml())
-        copyXmlToBinary(*xml, destData);
-}
-
-
-void HayesOverdriveAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
-{
-    if (auto xml = getXmlFromBinary(data, sizeInBytes))
-        if (xml->hasTagName(apvts.state.getType()))
-            apvts.state = ValueTree::fromXml(*xml);
-}
-
 
 juce::AudioProcessorValueTreeState::ParameterLayout HayesOverdriveAudioProcessor::createParameterLayout()
 {

@@ -1,15 +1,16 @@
 #pragma once
 #include "HayesOverdriveAudioProcessor.h"
-#include "CustomLookAndFeel.h"
-#include "CentredLabel.h"
-#include "DbSlider.h"
-#include "ScopeComponent.h"
-#include "PresetBar.h"
+#include "../../Common/BaseAudioProcessorEditor.h"
+#include "../../Common/CustomLookAndFeel.h"
+#include "../../Common/CentredLabel.h"
+#include "../../Common/DbSlider.h"
+#include "../../Common/WaveScopeComponent.h"
+#include "../../Common/PresetBar.h"
 
 constexpr int NUM_SLIDERS = 3;
 
-class HayesOverdriveAudioProcessorEditor : public juce::AudioProcessorEditor
-                                    , private juce::Timer
+class HayesOverdriveAudioProcessorEditor : public BaseAudioProcessorEditor
+                                         , private juce::Timer
 {
 public:
     HayesOverdriveAudioProcessorEditor(HayesOverdriveAudioProcessor& p);
@@ -25,7 +26,7 @@ private:
 
     PresetBar presetBar;
     
-    std::unique_ptr<ScopeComponent<float>> scopeComponent;
+    std::unique_ptr<WaveScopeComponent<float>> scopeComponent;
     CustomLookAndFeel customLookAndFeel;
     juce::Image image;
 

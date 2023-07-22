@@ -1,7 +1,7 @@
 #include "HayesOverdriveAudioProcessorEditor.h"
 
 HayesOverdriveAudioProcessorEditor::HayesOverdriveAudioProcessorEditor(HayesOverdriveAudioProcessor& p)
-:   AudioProcessorEditor{ &p }
+:   BaseAudioProcessorEditor{ p }
 ,   processor { p }
 ,   presetBar { p }
 {
@@ -45,7 +45,7 @@ void HayesOverdriveAudioProcessorEditor::addAllPanelComponents()
     
     waveShapeBoxAttachment = std::make_unique<ComboBoxAttachment>(processor.apvts, "waveshape", waveShapeBox);
     
-    scopeComponent = std::make_unique<ScopeComponent<float>>(processor.audioBufferQueue);
+    scopeComponent = std::make_unique<WaveScopeComponent<float>>(processor.audioBufferQueue);
     addAndMakeVisible(scopeComponent.get());
 
     presetBar.setLookAndFeel(&customLookAndFeel);

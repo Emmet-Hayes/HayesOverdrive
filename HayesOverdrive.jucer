@@ -6,12 +6,30 @@
               companyName="EmmetSoft" defines="JUCE_MODAL_LOOPS_PERMITTED=1">
   <MAINGROUP id="ovtJQf" name="HayesOverdrive">
     <GROUP id="{EE7455E5-9AF7-5E6F-17CA-7306226A685F}" name="Source">
-      <FILE id="IkmgxQ" name="CentredLabel.h" compile="0" resource="0" file="Source/CentredLabel.h"/>
-      <FILE id="HKCpVm" name="CustomLookAndFeel.cpp" compile="1" resource="0"
-            file="Source/CustomLookAndFeel.cpp"/>
-      <FILE id="TLcuw2" name="CustomLookAndFeel.h" compile="0" resource="0"
-            file="Source/CustomLookAndFeel.h"/>
-      <FILE id="YPssoI" name="DbSlider.h" compile="0" resource="0" file="Source/DbSlider.h"/>
+      <GROUP id="{E7617B12-06D9-C1BD-E1D5-0C544033B0FD}" name="Common">
+        <FILE id="vv4srk" name="BaseAudioProcessor.cpp" compile="1" resource="0"
+              file="../Common/BaseAudioProcessor.cpp"/>
+        <FILE id="IHLdar" name="BaseAudioProcessor.h" compile="0" resource="0"
+              file="../Common/BaseAudioProcessor.h"/>
+        <FILE id="a02S1u" name="BaseAudioProcessorEditor.cpp" compile="1" resource="0"
+              file="../Common/BaseAudioProcessorEditor.cpp"/>
+        <FILE id="weaE3Q" name="BaseAudioProcessorEditor.h" compile="0" resource="0"
+              file="../Common/BaseAudioProcessorEditor.h"/>
+        <FILE id="m0hMoT" name="CentredLabel.h" compile="0" resource="0" file="../Common/CentredLabel.h"/>
+        <FILE id="iDoYJS" name="CustomLookAndFeel.cpp" compile="1" resource="0"
+              file="../Common/CustomLookAndFeel.cpp"/>
+        <FILE id="ohtbKo" name="CustomLookAndFeel.h" compile="0" resource="0"
+              file="../Common/CustomLookAndFeel.h"/>
+        <FILE id="covYet" name="DbSlider.h" compile="0" resource="0" file="../Common/DbSlider.h"/>
+        <FILE id="fo4MKo" name="PresetBar.cpp" compile="1" resource="0" file="../Common/PresetBar.cpp"/>
+        <FILE id="uLjhM5" name="PresetBar.h" compile="0" resource="0" file="../Common/PresetBar.h"/>
+        <FILE id="pnvEZa" name="PresetComboBox.cpp" compile="1" resource="0"
+              file="../Common/PresetComboBox.cpp"/>
+        <FILE id="zzTjYA" name="PresetComboBox.h" compile="0" resource="0"
+              file="../Common/PresetComboBox.h"/>
+        <FILE id="fFyDOr" name="WaveScopeComponent.h" compile="0" resource="0"
+              file="../Common/WaveScopeComponent.h"/>
+      </GROUP>
       <FILE id="ezNDxx" name="HayesOverdriveAudioProcessor.cpp" compile="1"
             resource="0" file="Source/HayesOverdriveAudioProcessor.cpp"/>
       <FILE id="ssvW9U" name="HayesOverdriveAudioProcessor.h" compile="0"
@@ -20,14 +38,6 @@
             resource="0" file="Source/HayesOverdriveAudioProcessorEditor.cpp"/>
       <FILE id="hLPFXA" name="HayesOverdriveAudioProcessorEditor.h" compile="0"
             resource="0" file="Source/HayesOverdriveAudioProcessorEditor.h"/>
-      <FILE id="Hp6DAn" name="PresetBar.cpp" compile="1" resource="0" file="Source/PresetBar.cpp"/>
-      <FILE id="fxV6Qx" name="PresetBar.h" compile="0" resource="0" file="Source/PresetBar.h"/>
-      <FILE id="nq0z9c" name="PresetComboBox.cpp" compile="1" resource="0"
-            file="Source/PresetComboBox.cpp"/>
-      <FILE id="baXWWs" name="PresetComboBox.h" compile="0" resource="0"
-            file="Source/PresetComboBox.h"/>
-      <FILE id="I3lwrB" name="ScopeComponent.h" compile="0" resource="0"
-            file="Source/ScopeComponent.h"/>
     </GROUP>
     <FILE id="WvaFCz" name="bgfile.jpg" compile="0" resource="1" file="Images/bgfile.jpg"/>
   </MAINGROUP>
